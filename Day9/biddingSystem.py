@@ -9,7 +9,7 @@ highest_bid = 0
 winner = ""
 bidder_amount = {}
 # clear = lambda: os.system('cls')
-
+print(type(bidder_amount))
 while continue_loop:
     User_name = input("Enter the name : ")
     User_price = int(input("Enter the bid price : "))
@@ -22,9 +22,9 @@ while continue_loop:
         os.system('cls')
 # print(total_bidders)
 for bidder in bidders:
-    bid_amount = bidders[bidder]
+    bid_amount = {bidders[bidder]}
     print(bid_amount)
-    # if int(bid_amount) > highest_bid:
+    # if bid_amount > highest_bid:
     #     highest_bid = bid_amount
     #     winner = bidder
 
