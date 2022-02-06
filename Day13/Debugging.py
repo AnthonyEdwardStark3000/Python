@@ -33,9 +33,11 @@
 # # Fix the Errors
 # print("Function that compares string with arithmetic operator")
 # age = input("How old are you?")
-# age = int(age) //my change
+# age = int(age) #//my change
 # if age > 18:
-# print("You can drive at age {age}.")
+#     print(f"You can drive at age {age}.") # my change
+# else:
+#     print(f"You can't drive at the age {age}") # my change
 
 # #Print is Your Friend
 # pages = 0
