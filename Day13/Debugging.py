@@ -1,5 +1,7 @@
 ############DEBUGGING#####################
 
+# visit python tutor site for debugging
+
 # # Describe Problem
 # print("Function which terminates at 19")
 #
