@@ -322,10 +322,11 @@ data = [
 ]
 continue_game = 1
 end = len(data)
+initial_score = 0
 
 
-def game(cont):
-    correct_answer = 0
+def game(cont, score):
+    # correct_answer = 0
     choice_number1 = random.randint(0, end)
     choice_number2 = random.randint(0, end)
 
@@ -344,17 +345,21 @@ def game(cont):
     answer = input("Who has more followers ? Type 'A' or 'B' :").lower()
     if answer == 'a' and player_A['follower_count'] > player_B['follower_count']:
         print("You won")
-        correct_answer += 1
+        # correct_answer += 1
     elif answer == 'b' and player_B['follower_count'] > player_A['follower_count']:
         print("You won")
-        correct_answer += 1
+        # correct_answer += 1
+
     else:
-        print(f"You lose.....\n{player_A['name']} has {player_A['follower_count']} and {player_B['name']} has {player_B['follower_count']}")
-        print(f"\nAnd You have scored an total of {correct_answer} points")
+        print(
+            f"You lose.....\n{player_A['name']} has {player_A['follower_count']} and {player_B['name']} has {player_B['follower_count']}")
+        print(f"\nAnd You have scored an total of {score} points")
         exit()
 
     while cont != 0:
-        game(cont)
+        game(cont, score)
+        score = score + 1
+        print(score)
 
 
-game(continue_game)
+game(cont=continue_game, score=initial_score)
