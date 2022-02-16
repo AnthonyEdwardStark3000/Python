@@ -1,6 +1,8 @@
 # Snake game from Nokia
-from turtle import Turtle, Screen
+from turtle import Screen
 from snake import Snake
+from Food import Food
+from ScoreBoard import ScoreBoard
 import time
 
 screen = Screen()
@@ -9,6 +11,8 @@ screen.bgcolor("black")
 screen.title("Nokia Snake")
 screen.tracer(0)
 snake = Snake()
+food = Food()
+scoreboard = ScoreBoard()
 
 screen.listen()
 screen.onkey(snake.up, "Up")
@@ -21,5 +25,10 @@ while gameOn:
     screen.update()
     time.sleep(0.1)
     snake.move()
+
+    # Collision with the Food
+    if snake.head.distance(food) < 15:
+        food.RefreshFood()
+        scoreboard.increase_score()
 
 screen.exitonclick()
