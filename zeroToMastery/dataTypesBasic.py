@@ -37,3 +37,6 @@ print(quote.find('c'))
 print(quote.replace('destination', 'Destination'))
 # Example for string's immutability
 print(quote)
+
+birth_year = int(input('Enter your birth year :'))
+print(f'You are {2022-birth_year} years old')
