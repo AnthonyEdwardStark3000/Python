@@ -1,0 +1,10 @@
+print(type(10))
+print(type(10.5))
+print(type(None))
+print(type(True))
+print(type('Hi'))
+print(type([]))
+print(type({}))
+print(type(()))
+
+print("Hello".upper())
