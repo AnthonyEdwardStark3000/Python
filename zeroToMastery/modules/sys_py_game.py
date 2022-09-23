@@ -1,19 +1,19 @@
-import random
-import sys
+from random import randint
 
-chosen_choice = random.choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-
+answer = randint(1, 10)
 while True:
-    # print('Enter a number:')
+    user_input = input('Enter a number between 1 and 10 :')
     try:
-        user_input = int(sys.argv[1])
-    except ValueError as error_occurred:
-        print(f'Enter a valid number as {error_occurred} error occurred')
-    else:
-        if chosen_choice == user_input:
-            print(
-                f'Done with the program as User chose {user_input} and the computer chose {chosen_choice}')
+        if int(user_input) > 0 and int(user_input) < 11:
+            if int(user_input) == answer:
+                print(
+                    f'You won you chose {user_input} and the computer chose {answer}')
+                break
+            else:
+                print(
+                    f'You lost you chose {user_input} and the computer chose {answer}')
         else:
-            print(
-                f'Enter another number User chose {user_input} and the computer chose {chosen_choice}.')
-        break
+            print('Hey enter a number between 1 and 10')
+    except ValueError as err:
+        print(f'Please enter a valid number {err} occurred')
+        continue
