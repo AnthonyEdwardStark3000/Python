@@ -2,25 +2,27 @@ import requests
 import hashlib
 
 
-# password = 'D56D985300D4B52EB6E189BE006F44F8D23C5EC9'
-# password = 'D56D9'
-# url = 'https://api.pwnedpasswords.com/range/'+ password
-# res = requests.get(url)
-# print(res)
-
-def request_api(query_character):
-    url = 'https://api.pwnedpasswords.com/range/' + query_character
+def request_api_data(query_char):
+    url = "https://api.pwnedpasswords.com/range/" + query_char
     res = requests.get(url)
     if res.status_code != 200:
-        raise RuntimeError(f'Error occured {res.status_code}, check the API and try again .')
-    return res.status_code
+        raise RuntimeError(f'Error Fetching : {res.status_code}, check the api and try again .')
+    return res
 
 
-def pawned_api(password):
-    sha_password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
-    # print(f'The encrypted password is {sha_password}')
-    return sha_password
+def get_password_leaks(hashes, hash_to_check):
+    hashes = (line.split(":") for line in hashes.text.splitlines())
+    for h, count in hashes:
+        print(f'Your password {h} has been leaked {count} times')
 
-password_global = 'D56D9'
-pawned_api(password_global)
-request_api(password_global)
+
+def pwned_api_check(password):
+    sha1password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
+    first5_character, tail = sha1password[:5], sha1password[5:]
+    # print(f'first 5 characters: {first5_character}, remaining : {tail}')
+    response = request_api_data(first5_character)
+    print(response)
+    return get_password_leaks(response, tail)
+
+
+pwned_api_check('password123')
