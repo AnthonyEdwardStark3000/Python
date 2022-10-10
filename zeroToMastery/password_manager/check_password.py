@@ -1,5 +1,6 @@
 import requests
 import hashlib
+import sys
 
 
 def request_api_data(query_char):
@@ -13,16 +14,29 @@ def request_api_data(query_char):
 def get_password_leaks(hashes, hash_to_check):
     hashes = (line.split(":") for line in hashes.text.splitlines())
     for h, count in hashes:
-        print(f'Your password {h} has been leaked {count} times')
+        # print(f'Your password {h} has been leaked {count} times')
+        if h == hash_to_check:
+            return count
+    return 0
 
 
 def pwned_api_check(password):
     sha1password = hashlib.sha1(password.encode('utf-8')).hexdigest().upper()
     first5_character, tail = sha1password[:5], sha1password[5:]
-    # print(f'first 5 characters: {first5_character}, remaining : {tail}')
+    # print(f' first 5 characters: {first5_character}, remaining : {tail}')
     response = request_api_data(first5_character)
-    print(response)
+    # print(response)
     return get_password_leaks(response, tail)
 
 
-pwned_api_check('password123')
+def main(args):
+    for password in args:
+        count = pwned_api_check(password)
+        if count:
+            print(f'The password {password} you have entered is pawned {count} number of times')
+
+    return "Done with the checking and you are not hacked ."
+
+
+if __name__ == '__main__':
+    sys.exit(print(main(sys.argv[1:])))
