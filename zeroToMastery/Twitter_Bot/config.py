@@ -1,0 +1,9 @@
+consumer_key = '7V3AzsAkwvcov6MzTWVVKeV4y'
+consumer_secret = 'b7jl9QMdR1RWZ459VKdRbcXefoKSgp4jaQxAkzvi1ZApIU8Iyp'
+# bearer_token = 'AAAAAAAAAAAAAAAAAAAAAMs8iAEAAAAA8yk7pK2gkCprIXIFCX5AQMMxU40%3DlIoDH4mfHF333kN9qN61VUEbbejlj9ZRCsERPXe6p58uJKpOdd'
+
+client_id = 'QW1MQURjWWUzal85NG4wbzFBaTk6MTpjaQ'
+client_secret = 'FS1FmC58kdE9vhHCRE0nOXX0xFv3w8tNz7_3yN7240Ubhw7pjp'
+
+access_token = '1579849200602603520-5U01uPrtQjcFbRmPPkQEe1BZEM660Z'
+access_token_secret = '7ssoFwNEyle95Eb1cDrQKyupnxjraScURU3nL8OYfamui'
